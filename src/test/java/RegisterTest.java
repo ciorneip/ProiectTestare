@@ -23,7 +23,11 @@ public class RegisterTest {
     public void initialiseDriver() {
         System.setProperty("webdriver.chrome.driver", "C://Users//PAULA//Desktop//chromedriver.exe");
         driver = new ChromeDriver();
-        System.out.println("Before method");
+        System.out.println("Before test");
+    }
+    @BeforeMethod
+    public void beforeMetode() {
+              System.out.println("\n"+"Before metode");
     }
 
     @Test(description = "Check register error messages")
@@ -40,14 +44,20 @@ public class RegisterTest {
         registerPage.selectRegister();
         Thread.sleep(5000);
         registerPage.setCreateUser();
+
         Thread.sleep(5000);
         // registerPage.clickRobotel();
-        registerPage.clickRegister();
+        //registerPage.clickRegister();
+
+        registerPage.clickButton(registerPage.registerButton);
         Thread.sleep(10000);
-        registerPage.checkErrorMessages();
+
+       // registerPage.checkErrorMessages();
+        registerPage.checkErrorMessages2(registerPage.INVALID_ROBOTEL_MESSAGE, registerPage.invalidRobotelMessage.getText());
+
         //  driver.close();
         // driver.quit();
-
+        System.out.println("test1");
     }
 
     @Test(description = "Data provider =register test", dataProvider = "register")
@@ -69,6 +79,7 @@ public class RegisterTest {
         registerPage.clickRegister();
         Thread.sleep(10000);
         registerPage.checkErrorMessages();
+        System.out.println("test2");
     }
 
 
@@ -76,7 +87,11 @@ public class RegisterTest {
     public void closeDriver() {
         driver.close();
         driver.quit();
-        System.out.println("After method");
+        System.out.println("\n"+"After test");
+    }
+    @AfterMethod
+    public void afterMetode() {
+        System.out.println("After metode");
     }
 
 

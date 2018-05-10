@@ -62,6 +62,9 @@ public class RegisterPage {
         passwordInput.sendKeys(password);
     }
 
+    public void setCreateUser2(String email, String user,String password) {
+    }
+
     public void setCreateUser() {
         emailInput.sendKeys(EMAIL_ADRESS);
         userInput.sendKeys(USER);
@@ -80,5 +83,12 @@ public class RegisterPage {
         //Assert.assertEquals(INVALID_EMAIL_MESSAGE, invalidEmailMessage.getText());
         // Assert.assertEquals(INVALID_PASSWORD_MESSAGE, invalidPasswordMessage.getText());
         Assert.assertEquals(INVALID_ROBOTEL_MESSAGE, invalidRobotelMessage.getText());
+    }
+
+    public void checkErrorMessages2(String actualError, String expectedError) {
+        Assert.assertEquals(actualError, expectedError) ;
+    }
+    public void clickButton(WebElement myButton) {
+        myButton.click();
     }
 }
